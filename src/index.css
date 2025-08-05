@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Restaurant app design system with warm, appetizing colors */
-
+.mostafa {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  background: black;
+}
 @layer base {
   :root {
     --background: 35 20% 98%;
@@ -40,17 +45,25 @@
     --golden-yellow: 45 85% 60%;
     --soft-cream: 35 25% 92%;
     --rich-red: 5 75% 50%;
-    
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--warm-orange)), hsl(var(--golden-yellow)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--soft-cream)));
-    --gradient-overlay: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2));
-    
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--warm-orange)),
+      hsl(var(--golden-yellow))
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(var(--card)),
+      hsl(var(--soft-cream))
+    );
+    --gradient-overlay: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+
     /* Shadows */
     --shadow-card: 0 4px 20px -2px hsl(var(--warm-orange) / 0.1);
     --shadow-card-hover: 0 8px 30px -4px hsl(var(--warm-orange) / 0.2);
     --shadow-hero: 0 10px 40px -10px hsl(var(--warm-orange) / 0.3);
-    
+
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -120,9 +133,28 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Noto Kufi Arabic", sans-serif;
   }
 }
+.logoz {
+  padding-right: 30px;
+}
+.lang {
+  padding-left: 30px;
+}
+.heroz {
+  max-height: 600px;
+  border-radius: 0 0 35px 35px;
+  -webkit-border-radius: 0 0 35px 35px;
+  -moz-border-radius: 0 0 35px 35px;
+  -ms-border-radius: 0 0 35px 35px;
+  -o-border-radius: 0 0 35px 35px;
+}
+.mainz {
+  margin: auto;
+}
 .nav {
+  max-width: 1250px;
   position: absolute;
   top: 2rem;
   left: 50%;
@@ -131,8 +163,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%; 
-  padding: 1rem 2rem;
+  width: 90%;
+  padding-top: 7px;
+  padding-bottom: 7px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(12px);
@@ -140,6 +173,15 @@
   font-size: 1.125rem;
   font-weight: 600;
   color: white;
+}
+
+.footer {
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  padding: 15px 10px;
 }
 
 .lang-toggle {

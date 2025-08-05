@@ -6,6 +6,7 @@ interface MenuModalProps {
   onClose: () => void;
   restaurantName: string;
   images: string[];
+  logo: string;
 }
 
 const MenuModal = ({
@@ -13,6 +14,7 @@ const MenuModal = ({
   onClose,
   restaurantName,
   images,
+  logo,
 }: MenuModalProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -43,19 +45,18 @@ const MenuModal = ({
       {/* Modal Content */}
       <div className="relative rounded-2xl w-full max-w-5xl max-h-[95vh] overflow-hidden shadow-2xl z-10 flex flex-col backdrop-blur-xl border border-white/30 bg-white/10 px-8 py-4 text-white">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="flex flex-col items-center justify-center p-6 border-b border-gray-200">
+          <img
+            src={logo}
+            alt={` logo`}
+            className="w-[60px] h-[60px] object-contain mb-5"
+          />
           <h2
             className="text-2xl font-bold text-white"
             style={{ textShadow: "0 1px 4px rgba(0, 0, 0, 0.5)" }}
           >
-            {restaurantName} Menu
+            {restaurantName}
           </h2>
-          <button
-            onClick={onClose}
-            className="p-2 hover:bg-white/20 rounded-full transition-colors duration-200"
-          >
-            <X className="w-6 h-6 text-white" />
-          </button>
         </div>
 
         {/* Image Navigation */}
