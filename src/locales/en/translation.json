@@ -1,10 +1,10 @@
-{ 
-    "welcome": "Welcome",
-    "discover": "Discover Amazing",
-    "restaurants": "Restaurants",
-    "description": "Explore the finest cuisines from around the world. From cozy local spots to elegant dining experiences.",
-    "explore": "Explore Restaurants",
-    "featured": "Featured Restaurants",
-    "discover_flavors": "Discover amazing flavors from our carefully selected restaurant partners"
-  
-  }
+{
+  "welcome": "Welcome",
+  "discover": "Discover Amazing",
+  "restaurants": "Restaurants",
+  "description": "Explore the finest cuisines from around the world. From cozy local spots to elegant dining experiences.",
+  "explore": "Explore Restaurants",
+  "featured": "Featured Restaurants",
+  "discover_flavors": "Discover amazing flavors from our carefully selected restaurant partners",
+  "search_restaurant": "Search restaurants..."
+}

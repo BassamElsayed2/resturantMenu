@@ -1,51 +1,68 @@
+import i18n from "@/i18n";
+
 interface RestaurantCardProps {
   id: string;
   name: string;
   logo: string;
-  cuisine: string;
-  rating: number;
+  desc_ar: string;
+  desc_en: string;
+  // cuisine: string;
+
   onClick: (id: string) => void;
 }
 
-const RestaurantCard = ({ id, name, logo, cuisine, rating, onClick }: RestaurantCardProps) => {
+const RestaurantCard = ({
+  id,
+  name,
+  logo,
+  desc_ar,
+  desc_en,
+  onClick,
+}: RestaurantCardProps) => {
+  const currentLocale = i18n.language;
+
   return (
-    <div 
+    <div
       className="group cursor-pointer bg-card rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 border border-border"
-      style={{ 
-        background: 'var(--gradient-card)',
-        boxShadow: 'var(--shadow-card)',
-        transition: 'var(--transition-smooth)'
+      style={{
+        background: "var(--gradient-card)",
+        boxShadow: "var(--shadow-card)",
+        transition: "var(--transition-smooth)",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)';
+        e.currentTarget.style.boxShadow = "var(--shadow-card-hover)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = 'var(--shadow-card)';
+        e.currentTarget.style.boxShadow = "var(--shadow-card)";
       }}
       onClick={() => onClick(id)}
     >
       {/* Logo Container */}
       <div className="flex justify-center pt-8 pb-4">
         <div className="w-24 h-24 rounded-full bg-white p-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
-          <img 
-            src={logo} 
+          <img
+            src={logo}
             alt={`${name} logo`}
             className="w-full h-full object-contain"
           />
         </div>
       </div>
-      
+
       {/* Content */}
       <div className="px-6 pb-6 text-center">
         <h3 className="text-xl font-bold text-card-foreground mb-2 group-hover:text-warm-orange transition-colors duration-300">
           {name}
         </h3>
         <p className="text-muted-foreground mb-3 text-sm uppercase tracking-wide">
-          {cuisine}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: currentLocale === "ar" ? desc_ar : desc_en,
+            }}
+          ></div>
         </p>
-        
+
         {/* Rating */}
-        <div className="flex items-center justify-center gap-2">
+        {/* <div className="flex items-center justify-center gap-2">
           <div className="flex">
             {[...Array(5)].map((_, i) => (
               <svg
@@ -65,7 +82,7 @@ const RestaurantCard = ({ id, name, logo, cuisine, rating, onClick }: Restaurant
           <span className="text-sm font-medium text-muted-foreground">
             {rating.toFixed(1)}
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
