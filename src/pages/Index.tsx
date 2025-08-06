@@ -42,9 +42,16 @@ const Index = () => {
   };
 
   const filteredRestaurants =
-    restaurants?.filter((r) =>
-      r.name.toLowerCase().includes(search.toLowerCase())
-    ) || [];
+    restaurants
+      ?.filter((r) => r.name.toLowerCase().includes(search.toLowerCase()))
+      .sort((a, b) => {
+        // Put Elsawra first
+        if (a.name === "Elsawra") return -1;
+        if (b.name === "Elsawra") return 1;
+        return 0;
+      }) || [];
+
+  console.log(restaurants);
 
   return (
     <div className="min-h-screen bg-background">
@@ -55,43 +62,30 @@ const Index = () => {
         {/* Restaurants Section */}
         <section className="py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              {/* <h2 className="text-[35pt]  font-bold text-foreground mb-4">
-                {t("featured")}
-              </h2> */}
-              <p className="text-[17px] text-muted-foreground max-w-2xl mx-auto">
-                {t("discover_flavors")}
-              </p>
-              {/* Search Bar */}
-              <div className="flex justify-center mt-8">
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder={
-                    t("search_restaurant") || "Search restaurants..."
-                  }
-                  className="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 text-lg shadow-sm bg-white"
-                />
-              </div>
-            </div>
+            <div className="text-center mb-16"></div>
             {/* Restaurant Grid */}
             <div
               id="menus"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
-              {filteredRestaurants.map((restaurant) => (
-                <RestaurantCard
+              {filteredRestaurants.map((restaurant, index) => (
+                <div
                   key={restaurant.id}
-                  id={restaurant.id}
-                  name={restaurant.name}
-                  logo={restaurant.logo}
-                  desc_ar={restaurant.desc_ar}
-                  desc_en={restaurant.desc_en}
-                  // cuisine={restaurant.cuisine}
-                  // rating={restaurant.rating}
-                  onClick={handleRestaurantClick}
-                />
+                  className={
+                    index === 0 ? "col-span-1 md:col-span-2 lg:col-span-4" : ""
+                  }
+                >
+                  <RestaurantCard
+                    id={restaurant.id}
+                    name={restaurant.name}
+                    logo={restaurant.logo}
+                    desc_ar={restaurant.desc_ar}
+                    desc_en={restaurant.desc_en}
+                    // cuisine={restaurant.cuisine}
+                    // rating={restaurant.rating}
+                    onClick={handleRestaurantClick}
+                  />
+                </div>
               ))}
             </div>
           </div>
