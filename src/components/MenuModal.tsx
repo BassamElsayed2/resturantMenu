@@ -45,11 +45,11 @@ const MenuModal = ({
       {/* Modal Content */}
       <div className="relative rounded-2xl w-full max-w-5xl max-h-[95vh] overflow-hidden shadow-2xl z-10 flex flex-col backdrop-blur-xl border border-white/30 bg-white/10 px-8 py-4 text-white">
         {/* Header */}
-        <div className="flex flex-col items-center justify-center p-6 border-b border-gray-200">
+        <div className="flex flex-row gap-4 items-center justify-center p-2 border-b border-gray-200">
           <img
             src={logo}
             alt={` logo`}
-            className="w-[60px] h-[60px] object-contain mb-5"
+            className="w-[60px] h-[60px] object-contain "
           />
           <h2
             className="text-2xl font-bold text-white"
@@ -64,7 +64,7 @@ const MenuModal = ({
           <img
             src={images[currentIndex]}
             alt={`${restaurantName} menu page ${currentIndex + 1}`}
-            className="max-h-[85vh] w-full object-contain transition-opacity duration-300 ease-in-out"
+            className="max-h-[80vh] w-full object-contain transition-opacity duration-300 ease-in-out"
           />
 
           {/* Page Indicator */}

@@ -39,7 +39,7 @@ const RestaurantCard = ({
     >
       {/* Logo Container */}
       <div className="flex justify-center pt-8 pb-4">
-        <div className="w-50 h-50 rounded-full bg-white p-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
+        <div className="w-[8rem] h-[8rem] rounded-full bg-white p-4 shadow-lg group-hover:shadow-xl transition-all duration-300">
           <img
             src={logo}
             alt={`${name} logo`}
